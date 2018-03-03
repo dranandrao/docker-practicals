@@ -1,0 +1,91 @@
+
+#docker run is used to run a docker engine.
+#--name specifies the name of the docker.
+ docker run -itd --name=networktest ubuntu
+ 
+#network insoect is used to inspect the docker containers network realted stuff.
+ docker network inspect bridge
+ 
+#build is used to compile or build the docker from dockerfile.
+# . spedifies to find the dockerfile in current directory.
+ docker build -t my_docker .
+ 
+#4000 specifies the port of container.
+#80 specifies the port.
+ docker run -p 4000:80 my_docker
+ 
+ #creates the network 
+ #d flag specifies to use the features of bridge network.
+ docker network create -d bridge my_bridge
+ #net specifies the networj to be used.
+ docker run -d --net=my_bridge --name db training/postgres
+ 
+#exec used to execute the container
+ docker exec -it db bash
+ docker network inspect bridge
+ docker run -d --name web training/webapp python app.py
+ docker exec -it db bash
+ docker exec -it db bash
+ docker network inspect bridge
+ docker run -d --name web training/webapp python app.py
+ docker inspect bridge
+ 
+ #used to connect to container using bridge.
+ docker network connect my_bridge web
+ docker inspect bridge
+ 
+ #rm used to remove the container.
+ #ps used to list the running containers.
+ docker rmi $(docker ps -aq)
+ docker rm $(docker ps -aq)
+ 
+ #stop is used to stop the containers.
+ docker stop $(docker ps -aq)
+ docker rm $(docker ps -aq)
+ docker ps
+ docker -t my_docker .
+ docker build -t my_docker .
+ docker run -p 4000:80 my_docker
+ docker inpsect my_bridge
+ docker inspect my_bridge
+ docker inspect bridge
+ docker run -p 4000:80 my_docker
+ docker run -d --name web training/webapp python app,py
+ docker run -d --name web my_docker  python app,py
+ docker inspect bridge
+ 
+ #images used to list the images present in the pc.
+ docker images
+ docker rmi my_docker
+ docker rmi -f my_docker
+ docker rmi -f python
+ docker rmi -f ubuntu
+ docker images
+ docker run -it web
+ docker images
+ docker run -it training/webapp
+ docker inspect bridge
+ docker run -d --name web training/webapp python app.py
+ docker images
+ docker rm training/webapp
+ docker rm -f  training/webapp
+ docker rmi -f  training/webapp
+ docker images
+ docker run -d --name web training/webapp python app.py
+ docker ps -q
+ docker rm $(docker ps -q)
+ docker stop $(docker ps -q)
+ docker rm $(docker ps -q)
+ docker rm $(docker ps -aq)
+ docker inspect bridge
+ docker run -d --net=my_bridge --name db training/postgres
+ docker inspect my_bridge
+ docker exec -it db bash
+ docker inspect my_bridge
+ docker exec -it db bash
+ docker inspect my_bridge
+ docker exec -it db bash
+ docker images
+ 
+docker run hello-world
+ 
